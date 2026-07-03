@@ -1,0 +1,171 @@
+/* ===========================================
+   Global App Background
+=========================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(
+    135deg,
+    #050816 0%,
+    #0b1020 45%,
+    #07192d 100%
+  );
+}
+
+/* ===========================================
+   Animated Gradient Blobs
+=========================================== */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.22;
+  pointer-events: none;
+  animation: float 14s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 430px;
+  height: 430px;
+  background: #6d5df6;
+  top: -140px;
+  left: -120px;
+}
+
+.blob-2 {
+  width: 360px;
+  height: 360px;
+  background: #00d9ff;
+  top: 220px;
+  right: -120px;
+  animation-delay: 3s;
+}
+
+.blob-3 {
+  width: 300px;
+  height: 300px;
+  background: #7c3aed;
+  bottom: -100px;
+  left: 35%;
+  animation-delay: 6s;
+}
+
+/* ===========================================
+   Soft Aurora Effect
+=========================================== */
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(109, 93, 246, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0, 217, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(124, 58, 237, 0.08), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===========================================
+   Noise Texture
+=========================================== */
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #ffffff 0.5px, transparent 0.6px);
+  background-size: 24px 24px;
+  z-index: 0;
+}
+
+/* ===========================================
+   Keep Components Above Background
+=========================================== */
+
+app-navbar,
+app-hero {
+  position: relative;
+  display: block;
+  z-index: 2;
+}
+
+/* ===========================================
+   Blob Animation
+=========================================== */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  25% {
+    transform: translateY(-25px) translateX(20px);
+  }
+
+  50% {
+    transform: translateY(-45px) translateX(0px);
+  }
+
+  75% {
+    transform: translateY(-20px) translateX(-20px);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+}
+
+/* ===========================================
+   Responsive
+=========================================== */
+
+@media (max-width: 992px) {
+
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .blob-2 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .blob-3 {
+    width: 220px;
+    height: 220px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .blob {
+    opacity: 0.16;
+    filter: blur(100px);
+  }
+
+}
