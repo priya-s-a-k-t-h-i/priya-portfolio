@@ -1,0 +1,19 @@
+// ============================================================================
+// Motion tokens
+//
+// One signature easing curve, reused everywhere, is what makes motion feel
+// authored rather than default. --ease-signature is that curve; the others
+// exist for the handful of cases (linear entry/exit) where it doesn't fit.
+// ============================================================================
+
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  --ease-signature: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}

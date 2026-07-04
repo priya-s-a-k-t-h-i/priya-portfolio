@@ -1,0 +1,13 @@
+// ============================================================================
+// Shadow tokens
+//
+// Kept subtle on purpose — on a dark background, elevation should read
+// mostly through border and surface-color shifts, not heavy glow.
+// ============================================================================
+
+:root {
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 4px 16px rgb(0 0 0 / 45%);
+  --shadow-lg: 0 12px 40px rgb(0 0 0 / 50%);
+  --shadow-focus: 0 0 0 3px var(--color-accent-muted);
+}

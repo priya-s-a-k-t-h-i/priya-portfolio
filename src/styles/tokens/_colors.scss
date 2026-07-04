@@ -1,0 +1,37 @@
+// ============================================================================
+// Color tokens — dark theme
+//
+// Dark is the default and, for now, only theme. A future light theme would
+// override these same custom properties under `:root[data-theme='light']`
+// rather than introducing a second set of names.
+//
+// Discipline: one neutral scale, one accent, two semantic status colors.
+// No competing brand hues.
+// ============================================================================
+
+:root {
+  // Background
+  --color-bg: #0a0a0c;
+  --color-bg-elevated: #131316;
+  --color-surface: rgb(255 255 255 / 4%);
+  --color-surface-hover: rgb(255 255 255 / 7%);
+
+  // Borders
+  --color-border: rgb(255 255 255 / 8%);
+  --color-border-strong: rgb(255 255 255 / 16%);
+
+  // Text
+  --color-text-primary: #f5f5f7;
+  --color-text-secondary: #9a9aa2;
+  --color-text-muted: #6b6b72;
+  --color-text-on-accent: #0a0a0c;
+
+  // Accent — the one deliberate spot of color in the system
+  --color-accent: #e8a33d;
+  --color-accent-hover: #f0b25a;
+  --color-accent-muted: rgb(232 163 61 / 16%);
+
+  // Semantic status
+  --color-positive: #6fcf97;
+  --color-negative: #e5675f;
+}

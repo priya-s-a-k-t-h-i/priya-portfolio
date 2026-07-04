@@ -1,35 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+// Global styles entry point. Fonts are loaded centrally from index.html
+// (preconnect + stylesheet link), not via @import here — see index.html.
 
-html {
-  scroll-behavior: smooth;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  background: #050816;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  min-height: 100vh;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button,
-input,
-textarea {
-  font-family: inherit;
-}
+@use 'tokens';
+@use 'reset';
+@use 'typography';
+@use 'utilities';
+@use 'animations';

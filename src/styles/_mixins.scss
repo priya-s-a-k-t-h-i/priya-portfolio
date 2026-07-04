@@ -1,10 +1,52 @@
-@mixin glass {
-  background: rgba(255,255,255,.06);
-  backdrop-filter: blur(20px);
-  border:1px solid rgba(255,255,255,.08);
+@use 'sass:map';
+@use 'tokens';
+
+/// Media query at/above a named breakpoint (mobile-first).
+@mixin respond-up($breakpoint) {
+  $value: map.get(tokens.$breakpoints, $breakpoint);
+
+  @media (min-width: $value) {
+    @content;
+  }
 }
 
-@mixin container{
-  width:min(1200px,90%);
-  margin:auto;
+/// Media query below a named breakpoint.
+@mixin respond-down($breakpoint) {
+  $value: map.get(tokens.$breakpoints, $breakpoint);
+
+  @media (max-width: $value - 1px) {
+    @content;
+  }
+}
+
+/// Centered content column with a fluid side gutter.
+@mixin container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+/// Hide content visually while keeping it available to assistive tech.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/// Consistent keyboard-focus treatment, built from the shadow token.
+@mixin focus-ring {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/// Scope a rule to users who have not requested reduced motion.
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
 }

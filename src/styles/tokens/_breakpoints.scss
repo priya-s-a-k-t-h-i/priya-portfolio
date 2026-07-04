@@ -1,0 +1,32 @@
+// ============================================================================
+// Breakpoint tokens
+//
+// Media query feature values must be known at compile time, so breakpoints
+// live as Sass variables/maps (used by the respond-up/respond-down mixins)
+// rather than CSS custom properties. The values are mirrored below as
+// custom properties purely so a future TypeScript breakpoint service could
+// read the same numbers via getComputedStyle instead of duplicating them —
+// the Sass map stays the source of truth for anything compiled into CSS.
+// ============================================================================
+
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl,
+);
+
+:root {
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
+  --breakpoint-xl: #{$breakpoint-xl};
+  --breakpoint-2xl: #{$breakpoint-2xl};
+}
