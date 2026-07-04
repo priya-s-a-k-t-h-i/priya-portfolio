@@ -6,35 +6,33 @@
 
 .projects {
   @include mixins.container;
-  padding-block: var(--space-8);
+  padding-block: var(--space-9);
 }
 
 .projects > .eyebrow {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .project + .project {
-  margin-top: var(--space-8);
-  padding-top: var(--space-8);
+  margin-top: var(--space-9);
+  padding-top: var(--space-9);
   border-top: 1px solid var(--color-border);
 }
 
 .project__meta {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .project__title {
   max-width: 28ch;
-  margin: 0 0 var(--space-2);
-  font-family: var(--font-serif);
+  margin: 0 0 var(--space-3);
   font-size: var(--text-2xl);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-tight);
-  color: var(--color-text-primary);
+  // font-family/weight/line-height/letter-spacing/color inherited from the
+  // global h2 rule.
 }
 
 .project__summary {
-  max-width: 640px;
+  max-width: var(--measure-base);
   margin: 0;
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
@@ -44,8 +42,8 @@
 .project__details {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
-  margin: var(--space-6) 0 0;
+  gap: var(--space-5);
+  margin: var(--space-7) 0 0;
 
   @include mixins.respond-up('md') {
     grid-template-columns: repeat(2, 1fr);
@@ -58,7 +56,7 @@
 }
 
 .project__detail dt {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .project__detail dd {
@@ -69,10 +67,10 @@
 }
 
 .project__technologies {
-  margin-top: var(--space-6);
+  margin-top: var(--space-7);
 }
 
 .project__technologies .eyebrow {
   display: block;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }

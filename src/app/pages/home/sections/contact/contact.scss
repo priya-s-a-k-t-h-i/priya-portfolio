@@ -6,21 +6,19 @@
 
 .contact {
   @include mixins.container;
-  padding-block: var(--space-8) var(--space-9);
+  padding-block: var(--space-9);
 }
 
 .contact__heading {
   max-width: 24ch;
-  margin: var(--space-2) 0 var(--space-3);
-  font-family: var(--font-serif);
+  margin: var(--space-3) 0 var(--space-3);
   font-size: var(--text-3xl);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-tight);
-  color: var(--color-text-primary);
+  // font-family/weight/line-height/letter-spacing/color inherited from the
+  // global h2 rule.
 }
 
 .contact__message {
-  max-width: 560px;
+  max-width: var(--measure-base);
   margin: 0;
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
@@ -31,7 +29,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
 }
 
 .contact__availability {

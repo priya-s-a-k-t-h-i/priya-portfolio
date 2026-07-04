@@ -6,7 +6,7 @@
 
 .about {
   @include mixins.container;
-  padding-block: var(--space-8);
+  padding-block: var(--space-9);
 }
 
 .about__intro {
@@ -16,30 +16,28 @@
 
   @include mixins.respond-up('lg') {
     grid-template-columns: 0.8fr 1.2fr;
-    gap: var(--space-6);
+    gap: var(--space-7);
     align-items: start;
   }
 }
 
 .about__intro-heading .eyebrow {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .about__heading {
   max-width: 20ch;
   margin: 0;
-  font-family: var(--font-serif);
   font-size: var(--text-3xl);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-tight);
-  color: var(--color-text-primary);
+  // font-family/weight/line-height/letter-spacing/color inherited from the
+  // global h2 rule.
 }
 
 .about__narrative {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  max-width: 640px;
+  max-width: var(--measure-base);
 
   p {
     margin: 0;
@@ -50,12 +48,12 @@
 }
 
 .about__details {
-  margin-top: var(--space-7);
+  margin-top: var(--space-8);
 }
 
 .about__block .eyebrow {
   display: block;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .about__goal {

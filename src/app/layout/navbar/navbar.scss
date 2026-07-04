@@ -18,8 +18,8 @@
 .navbar--scrolled {
   background: var(--color-surface-translucent);
   border-bottom-color: var(--color-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
 }
 
 .navbar__inner {
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  padding-block: var(--space-2);
+  padding-block: var(--space-3);
 }
 
 .navbar__logo {
@@ -58,8 +58,27 @@
   padding-block: var(--space-0-5);
   transition: color var(--duration-base) var(--ease-standard);
 
+  // A quiet hover indicator, distinct from the accent-colored active-state
+  // underline below — opacity only, no width/transform trickery.
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-signature);
+  }
+
   &:hover {
     color: var(--color-text-primary);
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &[aria-current='true'] {

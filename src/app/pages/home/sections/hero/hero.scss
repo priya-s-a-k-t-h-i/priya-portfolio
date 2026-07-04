@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   gap: var(--space-6);
   align-items: center;
-  padding-block: var(--space-8) var(--space-7);
+  padding-block: var(--space-9) var(--space-8);
 
   @include mixins.respond-up('lg') {
     grid-template-columns: 1fr 1fr;
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 // A quiet reveal-on-load: each direct child fades up in sequence rather
@@ -59,13 +59,10 @@
 .hero__headline {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
   margin: 0;
-  font-family: var(--font-serif);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-text-primary);
+  // font-family/weight/line-height/letter-spacing/color inherited from the
+  // global h1 rule (see src/styles/_typography.scss) — not redeclared here.
 }
 
 .hero__name {
@@ -154,10 +151,13 @@
   fill: var(--color-surface);
   stroke: var(--color-border);
   stroke-width: 1.5;
+  rx: 16px;
 }
 
 .hero-visual__node--core {
   stroke: var(--color-accent);
+  rx: 20px;
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-accent) 35%, transparent));
   animation: pulse-soft 3.2s var(--ease-standard) infinite;
 }
 

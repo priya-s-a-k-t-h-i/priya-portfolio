@@ -6,11 +6,11 @@
 
 .awards {
   @include mixins.container;
-  padding-block: var(--space-8);
+  padding-block: var(--space-9);
 }
 
 .awards__list {
-  margin: var(--space-4) 0 0;
+  margin: var(--space-5) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -19,7 +19,7 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-3);
-  padding-block: var(--space-2);
+  padding-block: var(--space-3);
 }
 
 .awards__item + .awards__item {

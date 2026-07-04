@@ -6,18 +6,25 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   transition:
     transform var(--duration-base) var(--ease-signature),
+    box-shadow var(--duration-base) var(--ease-signature),
     background-color var(--duration-base) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard);
 
   &:hover {
     transform: translateY(-2px);
+  }
+
+  // A quick, slightly-damped press — reads as tactile, not sluggish.
+  &:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: var(--duration-fast);
   }
 }
 
@@ -25,9 +32,11 @@
   background: var(--color-accent);
   color: var(--color-text-on-accent);
   border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
 
   &:hover {
     background: var(--color-accent-hover);
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--color-accent) 30%, transparent);
   }
 }
 
@@ -38,5 +47,6 @@
 
   &:hover {
     background: var(--color-surface-hover);
+    border-color: var(--color-text-muted);
   }
 }
