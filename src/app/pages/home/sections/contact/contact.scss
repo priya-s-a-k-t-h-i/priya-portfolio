@@ -1,0 +1,68 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.contact {
+  @include mixins.container;
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.contact__heading {
+  max-width: 24ch;
+  margin: var(--space-2) 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.contact__message {
+  max-width: 560px;
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.contact__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.contact__availability {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.contact__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--color-positive);
+}
+
+.contact__location {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}

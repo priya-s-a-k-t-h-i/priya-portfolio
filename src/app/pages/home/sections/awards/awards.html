@@ -1,0 +1,17 @@
+<section id="awards" class="awards" aria-labelledby="awards-label">
+  <p class="eyebrow" id="awards-label" appReveal>Awards</p>
+
+  <ol class="awards__list" appReveal>
+    @for (award of awardItems; track award.title) {
+      <li class="awards__item">
+        <span class="awards__index" aria-hidden="true">{{ award.index }}</span>
+        <span class="awards__content">
+          <span class="awards__title">{{ award.title }}</span>
+          @if (award.note) {
+            <span class="awards__note">{{ award.note }}</span>
+          }
+        </span>
+      </li>
+    }
+  </ol>
+</section>

@@ -1,0 +1,23 @@
+<section id="contact" class="contact" aria-labelledby="contact-label">
+  <div class="contact__intro" appReveal>
+    <p class="eyebrow" id="contact-label">{{ contact.eyebrow }}</p>
+    <h2 class="contact__heading">{{ contact.heading }}</h2>
+    <p class="contact__message">{{ contact.message }}</p>
+  </div>
+
+  <div class="contact__meta" appReveal>
+    <p class="contact__availability">
+      <span class="contact__dot" aria-hidden="true"></span>
+      {{ contact.availability }}
+    </p>
+    <p class="contact__location">{{ contact.location }}</p>
+  </div>
+
+  <ul class="contact__links" appReveal aria-label="Contact links">
+    @for (link of contact.links; track link.label) {
+      <li>
+        <a class="button button--secondary" [href]="link.href">{{ link.label }}</a>
+      </li>
+    }
+  </ul>
+</section>

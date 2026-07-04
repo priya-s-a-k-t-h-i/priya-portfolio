@@ -1,0 +1,63 @@
+<section id="projects" class="projects" aria-labelledby="projects-label">
+  <p class="eyebrow" id="projects-label" appReveal>{{ eyebrowLabel }}</p>
+
+  @for (project of projects; track project.id) {
+    <article class="project" appReveal>
+      <header class="project__header">
+        <p class="project__meta eyebrow">{{ project.industry }} &middot; {{ project.client }}</p>
+        <h2 class="project__title">{{ project.title }}</h2>
+        <p class="project__summary">{{ project.summary }}</p>
+      </header>
+
+      <dl class="project__details">
+        <div class="project__detail">
+          <dt class="eyebrow">Business context</dt>
+          <dd>{{ project.businessContext }}</dd>
+        </div>
+
+        <div class="project__detail">
+          <dt class="eyebrow">Engineering challenges</dt>
+          <dd>{{ project.engineeringChallenges }}</dd>
+        </div>
+
+        <div class="project__detail">
+          <dt class="eyebrow">Architecture decisions</dt>
+          <dd>{{ project.architectureDecisions }}</dd>
+        </div>
+
+        <div class="project__detail">
+          <dt class="eyebrow">Reusable components</dt>
+          <dd>{{ project.reusableComponents }}</dd>
+        </div>
+
+        @if (project.accessibilityConsiderations) {
+          <div class="project__detail">
+            <dt class="eyebrow">Accessibility</dt>
+            <dd>{{ project.accessibilityConsiderations }}</dd>
+          </div>
+        }
+
+        @if (project.performanceConsiderations) {
+          <div class="project__detail">
+            <dt class="eyebrow">Performance</dt>
+            <dd>{{ project.performanceConsiderations }}</dd>
+          </div>
+        }
+
+        <div class="project__detail">
+          <dt class="eyebrow">Lessons learned</dt>
+          <dd>{{ project.lessonsLearned }}</dd>
+        </div>
+      </dl>
+
+      <div class="project__technologies">
+        <p class="eyebrow">Technologies</p>
+        <ul class="chip-list">
+          @for (tech of project.technologies; track tech) {
+            <li class="chip">{{ tech }}</li>
+          }
+        </ul>
+      </div>
+    </article>
+  }
+</section>

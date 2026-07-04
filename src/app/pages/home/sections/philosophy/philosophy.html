@@ -1,0 +1,12 @@
+<section id="philosophy" class="philosophy" aria-labelledby="philosophy-label">
+  <div class="philosophy__intro" appReveal>
+    <p class="eyebrow" id="philosophy-label">{{ philosophy.eyebrow }}</p>
+    <h2 class="philosophy__heading">{{ philosophy.heading }}</h2>
+  </div>
+
+  <div class="philosophy__body" appReveal>
+    @for (paragraph of philosophy.paragraphs; track paragraph) {
+      <p>{{ paragraph }}</p>
+    }
+  </div>
+</section>

@@ -30,7 +30,11 @@ export class Reveal implements OnInit, OnDestroy {
           this.observer?.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: '0px 0px -80px 0px' },
+      // threshold: 0 (not a percentage) so this holds for content blocks
+      // taller than the viewport — a percentage threshold combined with a
+      // shrunk root can leave the last element on the page permanently
+      // below threshold once there is no more room left to scroll.
+      { threshold: 0, rootMargin: '0px' },
     );
 
     this.observer.observe(this.element);

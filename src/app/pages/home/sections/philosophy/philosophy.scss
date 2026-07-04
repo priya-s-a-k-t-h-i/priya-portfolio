@@ -1,0 +1,35 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.philosophy {
+  @include mixins.container;
+  padding-block: var(--space-8);
+}
+
+.philosophy__heading {
+  max-width: 24ch;
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.philosophy__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 680px;
+  margin-top: var(--space-5);
+}
+
+.philosophy__body p {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,16 @@
+<section id="skills" class="skills" aria-labelledby="skills-label">
+  <p class="eyebrow" id="skills-label" appReveal>{{ eyebrowLabel }}</p>
+
+  <div class="skills__groups grid grid--auto">
+    @for (group of skills; track group.category) {
+      <div class="skills__group" appReveal>
+        <h2 class="skills__category">{{ group.category }}</h2>
+        <ul class="chip-list">
+          @for (item of group.items; track item) {
+            <li class="chip">{{ item }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
