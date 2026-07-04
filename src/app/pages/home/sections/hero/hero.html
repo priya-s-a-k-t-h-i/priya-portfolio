@@ -1,0 +1,49 @@
+<section id="hero" class="hero">
+  <div class="hero__content">
+    <p class="hero__status eyebrow">{{ hero.status }}</p>
+
+    <h1 class="hero__headline">
+      <span class="hero__name">{{ hero.headlineName }}</span>
+      <span class="hero__statement">{{ hero.headlineStatement }}</span>
+    </h1>
+
+    <p class="hero__subtext">{{ hero.subtext }}</p>
+
+    <div class="hero__actions">
+      <a class="button button--primary" [href]="primaryHref">{{ hero.primaryCta.label }}</a>
+      <a class="button button--secondary" [href]="hero.secondaryCta.target">{{ hero.secondaryCta.label }}</a>
+    </div>
+
+    <ul class="hero__credibility" aria-label="Credibility summary">
+      @for (item of hero.credibility; track item; let last = $last) {
+        <li>
+          {{ item }}
+          @if (!last) {
+            <span class="hero__credibility-divider" aria-hidden="true">&middot;</span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="hero__visual" aria-hidden="true">
+    <svg class="hero-visual" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="hero-visual__connector" d="M240,180 V155 H68 V140" />
+      <path class="hero-visual__connector" d="M240,180 V155 H412 V140" />
+      <path class="hero-visual__connector" d="M240,300 V325 H68 V340" />
+      <path class="hero-visual__connector hero-visual__connector--active" d="M240,300 V325 H412 V340" />
+
+      <circle class="hero-visual__joint" cx="68" cy="155" r="3" />
+      <circle class="hero-visual__joint" cx="412" cy="155" r="3" />
+      <circle class="hero-visual__joint" cx="68" cy="325" r="3" />
+      <circle class="hero-visual__joint" cx="412" cy="325" r="3" />
+
+      <rect class="hero-visual__node hero-visual__node--satellite" x="16" y="68" width="104" height="72" rx="10" />
+      <rect class="hero-visual__node hero-visual__node--satellite" x="360" y="68" width="104" height="72" rx="10" />
+      <rect class="hero-visual__node hero-visual__node--satellite" x="16" y="340" width="104" height="72" rx="10" />
+      <rect class="hero-visual__node hero-visual__node--satellite" x="360" y="340" width="104" height="72" rx="10" />
+
+      <rect class="hero-visual__node hero-visual__node--core" x="180" y="180" width="120" height="120" rx="16" />
+    </svg>
+  </div>
+</section>

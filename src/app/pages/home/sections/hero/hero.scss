@@ -1,0 +1,168 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.hero {
+  @include mixins.container;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  padding-block: var(--space-8) var(--space-7);
+
+  @include mixins.respond-up('lg') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+// A quiet reveal-on-load: each direct child fades up in sequence rather
+// than the whole block appearing at once. Reduced-motion handling already
+// lives globally in _reset.scss, so it isn't repeated here.
+.hero__content > * {
+  animation: fade-up var(--duration-slower) var(--ease-signature) both;
+}
+
+.hero__content > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.hero__content > *:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.hero__content > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.hero__content > *:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.hero__content > *:nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.hero__status {
+  margin: 0;
+}
+
+.hero__headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.hero__name {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+}
+
+.hero__statement {
+  font-size: var(--text-4xl);
+}
+
+.hero__subtext {
+  max-width: 640px;
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.hero__credibility {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+}
+
+.hero__credibility-divider {
+  color: var(--color-border-strong);
+}
+
+// ---------------------------------------------------------------------------
+// Signature visual — an abstract component/connection topology, not a
+// literal illustration. Reinforces "engineering system," stays out of the
+// way of the content on the left.
+// ---------------------------------------------------------------------------
+
+.hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in var(--duration-slower) var(--ease-signature) both;
+  animation-delay: 120ms;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.hero-visual__connector {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.hero-visual__connector--active {
+  stroke: var(--color-accent);
+  stroke-dasharray: 6 10;
+  animation: hero-flow 5s linear infinite;
+}
+
+.hero-visual__joint {
+  fill: var(--color-text-muted);
+}
+
+.hero-visual__node {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+.hero-visual__node--core {
+  stroke: var(--color-accent);
+  animation: pulse-soft 3.2s var(--ease-standard) infinite;
+}
+
+@keyframes hero-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}

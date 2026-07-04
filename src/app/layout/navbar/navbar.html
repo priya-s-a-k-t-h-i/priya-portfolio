@@ -1,0 +1,38 @@
+<header class="navbar" [class.navbar--scrolled]="isScrolled()">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="#hero" aria-label="{{ site.name }} — back to top">{{ site.initials }}</a>
+
+    <nav class="navbar__nav" aria-label="Primary">
+      <ul id="navbar-menu" class="navbar__list" [class.navbar__list--open]="isMenuOpen()">
+        @for (item of navItems; track item.sectionId) {
+          <li>
+            <a
+              class="navbar__link"
+              href="#{{ item.sectionId }}"
+              [attr.aria-current]="activeSectionId() === item.sectionId ? 'true' : null"
+              (click)="closeMenu()"
+              >{{ item.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="navbar__actions">
+      <a class="navbar__resume" [href]="navCta.href">{{ navCta.label }}</a>
+
+      <button
+        type="button"
+        class="navbar__toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="navbar-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
