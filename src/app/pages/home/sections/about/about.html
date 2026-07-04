@@ -1,0 +1,39 @@
+<section id="about" class="about" aria-labelledby="about-label">
+  <div class="about__intro">
+    <div class="about__intro-heading" appReveal>
+      <p class="eyebrow" id="about-label">{{ about.eyebrow }}</p>
+      <h2 class="about__heading">{{ about.heading }}</h2>
+    </div>
+
+    <div class="about__narrative" appReveal>
+      @for (paragraph of about.narrative; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="about__details grid grid--3">
+    <div class="about__block" appReveal>
+      <p class="eyebrow">Focus areas</p>
+      <ul class="chip-list">
+        @for (item of about.focusAreas; track item) {
+          <li class="chip">{{ item }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="about__block" appReveal>
+      <p class="eyebrow">Goal</p>
+      <p class="about__goal">{{ about.goal }}</p>
+    </div>
+
+    <div class="about__block" appReveal>
+      <p class="eyebrow">Interests</p>
+      <ul class="chip-list">
+        @for (item of about.interests; track item) {
+          <li class="chip">{{ item }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

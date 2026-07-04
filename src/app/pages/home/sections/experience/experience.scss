@@ -1,0 +1,110 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.experience {
+  @include mixins.container;
+  padding-block: var(--space-8);
+}
+
+.experience__entry + .experience__entry {
+  margin-top: var(--space-8);
+}
+
+.experience__meta-row {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.experience__company {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.experience__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.experience__dates {
+  font-family: var(--font-mono);
+}
+
+.experience__stages {
+  margin-top: var(--space-4);
+}
+
+.experience-card {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.experience-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.experience-card__client {
+  margin: 0 0 var(--space-0-5);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.experience-card__dates {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.experience-card__summary {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.experience-card__responsibilities {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-card__responsibilities li {
+  position: relative;
+  padding-left: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.experience-card__responsibilities li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-strong);
+}

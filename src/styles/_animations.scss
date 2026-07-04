@@ -45,3 +45,18 @@
 .animate-pulse-soft {
   animation: pulse-soft 2.4s var(--ease-standard) infinite;
 }
+
+// Scroll reveal — classes are only ever added by the shared `appReveal`
+// directive, never applied directly in a template. See src/app/shared/reveal.
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-signature),
+    transform var(--duration-slower) var(--ease-signature);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}

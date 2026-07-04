@@ -1,0 +1,68 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.about {
+  @include mixins.container;
+  padding-block: var(--space-8);
+}
+
+.about__intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+
+  @include mixins.respond-up('lg') {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+.about__intro-heading .eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.about__heading {
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.about__narrative {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 640px;
+
+  p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+  }
+}
+
+.about__details {
+  margin-top: var(--space-7);
+}
+
+.about__block .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.about__goal {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
