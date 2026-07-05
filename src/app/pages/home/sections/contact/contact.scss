@@ -6,6 +6,7 @@
 
 .contact {
   @include mixins.container;
+  @include mixins.section-divider;
   padding-block: var(--space-9);
 }
 

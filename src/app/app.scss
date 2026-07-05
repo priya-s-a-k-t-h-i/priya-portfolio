@@ -2,13 +2,35 @@
   display: block;
 }
 
-// The old scaffold rendered a multi-hue animated blob background here
-// (purple/cyan/violet gradients with hardcoded hex values). Removed as part
-// of establishing the token system — a real signature background treatment
-// is a deliberate visual-identity decision for a later commit, not a
-// default inherited from the original scaffold.
+// Signature background treatment, replacing the old scaffold's multi-hue
+// animated blobs. Two quiet, static layers instead of one flat color:
+//
+// 1. A soft ambient wash falling from above — like light through a window,
+//    not a colored glow. It's strongest near the top (where Hero lives,
+//    the "stop scrolling" moment) and fades out well before About begins.
+// 2. A barely-there grain texture, fixed to the viewport so it reads as a
+//    property of the screen/material rather than the page — the detail
+//    that keeps a flat dark background from feeling like a flat color swatch.
+//
+// Both are static — no animation, nothing to distract from content.
 .app-shell {
   position: relative;
   min-height: 100vh;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(ellipse 1200px 700px at 50% -10%, var(--color-ambient), transparent 65%);
+}
+
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  // A plain z-index:0 positioned element actually paints ABOVE normal-flow
+  // content per the CSS stacking order — negative is what's needed to
+  // guarantee this stays behind every section regardless of paint order.
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }

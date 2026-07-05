@@ -75,7 +75,7 @@
 }
 
 .hero__subtext {
-  max-width: 640px;
+  max-width: var(--measure-base);
   margin: 0;
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
@@ -157,7 +157,8 @@
 .hero-visual__node--core {
   stroke: var(--color-accent);
   rx: 20px;
-  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-accent) 35%, transparent));
+  // A quiet hint of light around the core node, not a glow — calm over neon.
+  filter: drop-shadow(0 0 14px color-mix(in srgb, var(--color-accent) 18%, transparent));
   animation: pulse-soft 3.2s var(--ease-standard) infinite;
 }
 

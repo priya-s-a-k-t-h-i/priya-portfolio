@@ -34,9 +34,10 @@
   border: 1px solid transparent;
   box-shadow: var(--shadow-sm);
 
+  // A quiet hint of light, not a glow — calm over flashy.
   &:hover {
     background: var(--color-accent-hover);
-    box-shadow: 0 12px 28px color-mix(in srgb, var(--color-accent) 30%, transparent);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 16%, transparent);
   }
 }
 

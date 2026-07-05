@@ -32,6 +32,11 @@
   --color-accent-hover: #f0b25a;
   --color-accent-muted: rgb(232 163 61 / 16%);
 
+  // Ambient — a neutral (not accent-tinted) top-light wash for background
+  // depth. Kept off the accent hue on purpose: diluting the one deliberate
+  // color into ambient decoration would undercut its rarity everywhere else.
+  --color-ambient: rgb(255 255 255 / 4%);
+
   // Semantic status
   --color-positive: #6fcf97;
   --color-negative: #e5675f;

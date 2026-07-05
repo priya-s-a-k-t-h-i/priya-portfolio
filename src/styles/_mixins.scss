@@ -50,3 +50,9 @@
     @content;
   }
 }
+
+/// A quiet top-edge rule marking a new section — the editorial equivalent
+/// of a chapter break, used instead of wrapping sections in boxes.
+@mixin section-divider {
+  border-top: 1px solid var(--color-border);
+}
