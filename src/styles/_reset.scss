@@ -1,3 +1,5 @@
+@use 'mixins';
+
 *,
 *::before,
 *::after {
@@ -62,9 +64,11 @@ ol {
   list-style: none;
 }
 
+// A soft focus ring (see mixins.focus-ring) everywhere, instead of the
+// browser's default hard outline — keyboard navigation should look
+// intentional, not like an accessibility afterthought.
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  @include mixins.focus-ring;
 }
 
 @media (prefers-reduced-motion: reduce) {

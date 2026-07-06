@@ -1,4 +1,5 @@
 @use 'mixins';
+@use 'buttons';
 
 :host {
   display: block;
@@ -31,6 +32,8 @@
   flex-wrap: wrap;
   gap: var(--space-4);
   margin-top: var(--space-5);
+  // A beat after the heading/message above.
+  transition-delay: 80ms;
 }
 
 .contact__availability {
@@ -60,8 +63,20 @@
 .contact__links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  margin: var(--space-6) 0 0;
+  gap: var(--space-3);
+  margin: var(--space-7) 0 0;
   padding: 0;
   list-style: none;
+  // The final beat: statement, then context, then the actual action.
+  transition-delay: 160ms;
+}
+
+// Email is always first in the content array — the strongest, most direct
+// way to reach out — so it gets the primary-button treatment; LinkedIn and
+// GitHub stay secondary. Styled by position rather than a template change,
+// since content/markup are frozen this commit: if the link order in
+// contact.ts ever changes, this follows whichever link is first, not
+// necessarily "Email" by name — worth knowing before reordering that file.
+.contact__links li:first-child .button {
+  @include buttons.button-primary-look;
 }

@@ -15,8 +15,11 @@
 }
 
 .project + .project {
-  margin-top: var(--space-9);
-  padding-top: var(--space-9);
+  // A little more than the standard space-9 — project write-ups are dense,
+  // and the extra room signals "new case study" more clearly than the
+  // divider alone.
+  margin-top: calc(var(--space-9) + var(--space-3));
+  padding-top: calc(var(--space-9) + var(--space-3));
   border-top: 1px solid var(--color-border);
 }
 
@@ -43,12 +46,12 @@
 .project__details {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-6);
   margin: var(--space-7) 0 0;
 
   @include mixins.respond-up('md') {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--space-6);
+    column-gap: var(--space-7);
   }
 }
 
@@ -57,7 +60,7 @@
 }
 
 .project__detail dt {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .project__detail dd {

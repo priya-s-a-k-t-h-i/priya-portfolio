@@ -20,11 +20,12 @@
 }
 
 .experience__company {
+  max-width: 20ch;
   margin: 0 0 var(--space-1);
-  font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  font-size: var(--text-3xl);
+  // font-family/weight/line-height/letter-spacing/color inherited from the
+  // global h2 rule — sized up from text-2xl so the company name reads as
+  // clearly as About/Contact/Philosophy's main headings, not a step below.
 }
 
 .experience__meta {
@@ -41,11 +42,17 @@
 }
 
 .experience__stages {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+// A second card sitting beside the first would otherwise reveal at the same
+// instant — a small stagger so they read as two distinct beats.
+.experience-card:nth-child(2) {
+  transition-delay: 80ms;
 }
 
 .experience-card {
-  padding: var(--space-5);
+  padding: var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   background: var(--color-surface);
@@ -66,15 +73,17 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
+// Secondary to the company name above — client is the "which engagement",
+// not the headline.
 .experience-card__client {
   margin: 0 0 var(--space-0-5);
   font-family: var(--font-serif);
   font-size: var(--text-lg);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
 }
 
 .experience-card__dates {
@@ -101,10 +110,12 @@
   list-style: none;
 }
 
+// Third and quietest tier of the hierarchy: company (primary) > client
+// (secondary) > responsibilities (muted).
 .experience-card__responsibilities li {
   position: relative;
   padding-left: var(--space-2);
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
 }

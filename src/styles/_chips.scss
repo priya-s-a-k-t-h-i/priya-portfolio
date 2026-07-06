@@ -4,7 +4,10 @@
 .chip-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1);
+  // Rows get more room to breathe than the chips within a row do —
+  // wrapping should read as considered, not cramped.
+  column-gap: var(--space-1);
+  row-gap: var(--space-2);
   list-style: none;
   margin: 0;
   padding: 0;

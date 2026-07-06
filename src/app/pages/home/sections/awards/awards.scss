@@ -14,6 +14,8 @@
   margin: var(--space-5) 0 0;
   padding: 0;
   list-style: none;
+  // A beat after the eyebrow, rather than both fading in together.
+  transition-delay: 80ms;
 }
 
 .awards__item {

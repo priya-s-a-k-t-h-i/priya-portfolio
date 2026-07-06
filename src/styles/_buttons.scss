@@ -1,6 +1,21 @@
 // Shared button styles — used by the hero CTAs today, and by any future
 // section that needs a call to action (contact, projects, etc).
 
+// The solid-accent treatment, extracted so Contact can give its strongest
+// link (see contact.scss) the same look without duplicating it.
+@mixin button-primary-look {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+
+  // A quiet hint of light, not a glow — calm over flashy.
+  &:hover {
+    background: var(--color-accent-hover);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 16%, transparent);
+  }
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -11,11 +26,14 @@
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
+  // One easing everywhere a button changes state — border/background used
+  // to lag behind transform/box-shadow on a slightly different curve; now
+  // every property on a button moves together.
   transition:
     transform var(--duration-base) var(--ease-signature),
     box-shadow var(--duration-base) var(--ease-signature),
-    background-color var(--duration-base) var(--ease-standard),
-    border-color var(--duration-base) var(--ease-standard);
+    background-color var(--duration-base) var(--ease-signature),
+    border-color var(--duration-base) var(--ease-signature);
 
   &:hover {
     transform: translateY(-2px);
@@ -29,16 +47,7 @@
 }
 
 .button--primary {
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  border: 1px solid transparent;
-  box-shadow: var(--shadow-sm);
-
-  // A quiet hint of light, not a glow — calm over flashy.
-  &:hover {
-    background: var(--color-accent-hover);
-    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 16%, transparent);
-  }
+  @include button-primary-look;
 }
 
 .button--secondary {

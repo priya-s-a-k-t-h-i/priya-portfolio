@@ -15,6 +15,43 @@
     border-color var(--duration-base) var(--ease-standard);
 }
 
+// Scroll progress indicator — a hairline that fills left-to-right as the
+// page scrolls. Native CSS scroll-driven animation (animation-timeline),
+// zero JavaScript: the browser ties the keyframe directly to scroll
+// position. Scoped to motion-safe only — it's tied 1:1 to user-initiated
+// scroll rather than autoplaying, but the brief for reduced-motion users
+// is "as little visual change as possible," so it's skipped entirely
+// rather than argued into an exception.
+@include mixins.motion-safe {
+  .navbar::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: var(--z-toast);
+    pointer-events: none;
+    animation-name: scroll-progress;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .navbar--scrolled {
   background: var(--color-surface-translucent);
   border-bottom-color: var(--color-border);
@@ -56,21 +93,30 @@
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   padding-block: var(--space-0-5);
-  transition: color var(--duration-base) var(--ease-standard);
+  transition: color var(--duration-base) var(--ease-signature);
 
-  // A quiet hover indicator, distinct from the accent-colored active-state
-  // underline below — opacity only, no width/transform trickery.
-  &::before {
+  // Shared geometry for both underlines — hover (::before, quiet neutral)
+  // and active-section (::after, accent) — each always present at opacity
+  // 0 so switching state fades rather than pops.
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     bottom: -6px;
     height: 2px;
-    background: var(--color-text-secondary);
     border-radius: var(--radius-full);
     opacity: 0;
     transition: opacity var(--duration-base) var(--ease-signature);
+  }
+
+  &::before {
+    background: var(--color-text-secondary);
+  }
+
+  &::after {
+    background: var(--color-accent);
   }
 
   &:hover {
@@ -83,16 +129,10 @@
 
   &[aria-current='true'] {
     color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
 
     &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 2px;
-      background: var(--color-accent);
-      border-radius: var(--radius-full);
+      opacity: 0.9;
     }
   }
 }

@@ -24,6 +24,8 @@
   gap: var(--space-3);
   max-width: var(--measure-base);
   margin-top: var(--space-6);
+  // A beat after the heading, rather than both fading in together.
+  transition-delay: 90ms;
 }
 
 .philosophy__body p {

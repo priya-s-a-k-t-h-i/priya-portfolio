@@ -37,8 +37,10 @@
 .about__narrative {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
   max-width: var(--measure-base);
+  // A quiet stagger: the heading reveals first, this a beat later.
+  transition-delay: 90ms;
 
   p {
     margin: 0;
@@ -50,6 +52,17 @@
 
 .about__details {
   margin-top: var(--space-8);
+}
+
+// The three detail blocks (Focus areas / Goal / Interests) sit side by side
+// and would otherwise cross the viewport threshold together — a small
+// per-block stagger keeps them from popping in as one flat block.
+.about__block:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.about__block:nth-child(3) {
+  transition-delay: 160ms;
 }
 
 .about__block .eyebrow {

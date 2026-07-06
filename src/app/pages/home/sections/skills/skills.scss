@@ -15,6 +15,19 @@
   row-gap: var(--space-6);
 }
 
+// Four categories side by side would otherwise reveal in one flat instant.
+.skills__group:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.skills__group:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.skills__group:nth-child(4) {
+  transition-delay: 210ms;
+}
+
 .skills__category {
   margin: 0 0 var(--space-3);
   font-size: var(--text-lg);
