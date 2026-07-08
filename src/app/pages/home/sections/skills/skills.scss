@@ -4,10 +4,13 @@
   display: block;
 }
 
+// Slightly tighter than the space-9 default — Skills is a compact, quick
+// section, and matching Projects' full breathing room here would flatten
+// out the density contrast that gives the page rhythm as you scroll.
 .skills {
   @include mixins.container;
-  @include mixins.section-divider;
-  padding-block: var(--space-9);
+  padding-block: var(--space-8);
+  background: linear-gradient(to bottom, transparent 0%, var(--color-surface) 45%, transparent 100%);
 }
 
 .skills__groups {

@@ -4,9 +4,12 @@
   display: block;
 }
 
+// No boundary line at the section level — the internal dividers between
+// individual case studies below (`.project + .project`) already do that
+// job at the right scale; a second line at the section edge would just be
+// a separator for its own sake.
 .projects {
   @include mixins.container;
-  @include mixins.section-divider;
   padding-block: var(--space-9);
 }
 

@@ -7,8 +7,8 @@
 
 .contact {
   @include mixins.container;
-  @include mixins.section-divider;
   padding-block: var(--space-9);
+  background: linear-gradient(to bottom, transparent 0%, var(--color-surface) 45%, transparent 100%);
 }
 
 .contact__heading {

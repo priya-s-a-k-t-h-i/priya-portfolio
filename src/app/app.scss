@@ -3,21 +3,31 @@
 }
 
 // Signature background treatment, replacing the old scaffold's multi-hue
-// animated blobs. Two quiet, static layers instead of one flat color:
+// animated blobs. Three quiet, static layers instead of one flat color:
 //
 // 1. A soft ambient wash falling from above — like light through a window,
 //    not a colored glow. It's strongest near the top (where Hero lives,
 //    the "stop scrolling" moment) and fades out well before About begins.
-// 2. A barely-there grain texture, fixed to the viewport so it reads as a
+//    Anchored to the page (scrolls with content), since it's lighting a
+//    specific place — the top — not the viewport in general.
+// 2. An extremely subtle vignette, anchored to the viewport instead
+//    (background-attachment: fixed) so it always frames whatever's
+//    currently visible, however far down the page that is. This is what
+//    gives the page a sense of "space" rather than "a flat color" — the
+//    edges recede a little no matter where you've scrolled to.
+// 3. A barely-there grain texture, fixed to the viewport so it reads as a
 //    property of the screen/material rather than the page — the detail
 //    that keeps a flat dark background from feeling like a flat color swatch.
 //
-// Both are static — no animation, nothing to distract from content.
+// All three are static — no animation, nothing to distract from content.
 .app-shell {
   position: relative;
   min-height: 100vh;
   background-color: var(--color-bg);
-  background-image: radial-gradient(ellipse 1200px 700px at 50% -10%, var(--color-ambient), transparent 65%);
+  background-image:
+    radial-gradient(ellipse 1200px 700px at 50% -10%, var(--color-ambient), transparent 65%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, transparent 60%, rgb(0 0 0 / 16%) 100%);
+  background-attachment: scroll, fixed;
 }
 
 .app-shell::before {

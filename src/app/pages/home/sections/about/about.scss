@@ -4,10 +4,13 @@
   display: block;
 }
 
+// No boundary line — the section reads as a change in density and a soft
+// pool of ambient light instead, fading in and out at its own edges so
+// there's no hard seam with Experience above or below.
 .about {
   @include mixins.container;
-  @include mixins.section-divider;
   padding-block: var(--space-9);
+  background: linear-gradient(to bottom, transparent 0%, var(--color-surface) 45%, transparent 100%);
 }
 
 .about__intro {
