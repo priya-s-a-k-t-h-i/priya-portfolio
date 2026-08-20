@@ -1,0 +1,22 @@
+<header class="app-header" aria-label="Site header">
+  <div class="app-header__inner">
+    <div class="app-header__identity">
+      <p class="app-header__eyebrow">Portfolio</p>
+      <h1 class="app-header__name">{{ name }}</h1>
+      <p class="app-header__role">{{ role }}</p>
+      <p class="app-header__positioning">{{ positioningLine }}</p>
+
+      <div class="app-header__contact" aria-label="Contact details">
+        <a class="app-header__link" href="mailto:{{ email }}">{{ email }}</a>
+        <span aria-hidden="true">•</span>
+        <span>{{ availability }}</span>
+      </div>
+    </div>
+
+    <div class="app-header__avatar" aria-hidden="true">
+      <div class="app-header__avatar-ring">
+        <span>PS</span>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,121 @@
+.app-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+}
+
+.app-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-header__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 720px;
+}
+
+.app-header__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.app-header__name {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.2vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.app-header__role {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.app-header__positioning {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.app-header__contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.app-header__link {
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-header__link:hover {
+  text-decoration: underline;
+}
+
+.app-header__avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+}
+
+.app-header__avatar-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1.25rem 1rem 1rem;
+  }
+
+  .app-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-header__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .app-header__avatar-ring {
+    width: 58px;
+    height: 58px;
+  }
+}
